@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+<style>
+body {
+    background-image: url('{% static 'img/videobg.jpeg'%}');
+    background-repeat: no-repeat;
+    background-size: 1800px 900px;
+    background-attachment: fixed;
+}
+section{background: black;
+     text-align: center;
+     margin: 100px;
+}
+ 
+ 
+ video{
+ 	margin-top:100px;
+ }
+ h1{
+
+ font:'raleway',sans-serif;
+ font-size:70px;
+text-align: center;
+
+letter-spacing: 0.3cm;
+
+background: linear-gradient(to right,white,purple);
+margin:-2px;
+color: black;
+ }
+a{
+	color: red;
+	 text-align: center;
+
+}
+
+</style>
+
+<body>
+
+  <nav class="navbar navbar-light " style="background-color: black;">
+    <a class="navbar-brand" href="#" style="color: azure;">
+       <img src="{% static 'img/w.png'%}" width="100" height="30" class="d-inline-block align-top" alt="" style="padding-left: 20px;">ebera
+      
+    </a>
+
+    <a class="navbar-brand" href="{%url "homepage"  %}" style="color: azure;">BACK </a>
+
+    
+  </nav>
+
+<section>
+<div class="row">
+	<div class="col-12">
+
+		<video width="1000" height="500"  controls preload >
+    <source src="{{video.video.url}}" type="video/mp4">
+  </video>
+		
+	</div>
+</div>
+	<div  style="text-align: center; padding-top: 20px; padding-bottom: 20px;">
+
+		 
+ 
+		{% if video.pdf %}
+
+    <a  href="{{video.pdf.url}}"><button style="background-color: purple; color: white;"type="button" class="btn  btn-lg">GET NOTES</button></a>
+
+  {% endif %}
+{% endblock %}
+	</div>
+</div>
+</section>
+</body>

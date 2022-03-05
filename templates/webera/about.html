@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<style>
+    h1 { 
+        color: white;
+    }
+    table{
+    	color:black;
+    	font-size: 35px;
+    }
+    body{
+    background-image: url('{% static 'img/videobg.jpeg'%}');
+    background-repeat: no-repeat;
+    background-size: 1800px 900px;
+    background-attachment: fixed;
+
+
+}
+
+td:hover{
+	color:#F5B041; 
+}
+ .line {
+              
+            /* Increase this as per requirement */
+            padding-bottom: 15px;
+            border-bottom-style: solid;
+            border-bottom-width: 3.1px;
+            width: fit-content;
+        }
+       
+</style>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+  <nav class="navbar navbar-light " style="background-color: black;">
+    <a class="navbar-brand" href="#" style="color: azure;">
+       <img src="{% static 'img/w.png'%}" width="100" height="30" class="d-inline-block align-top" alt="" style="padding-left: 20px;">ebera
+      
+    </a>
+
+    <a class="navbar-brand" href="{%url "loginpage" %}" style="color: azure;">
+      
+      BACK
+    </a>
+
+
+    
+  </nav>
+
+<table style="width:100% ">
+  
+  
+  <tr style="text-align: center; color:#00b7ffa1; padding-top: 20px">
+    <td>      <img src="{% static 'img/globe.png'%}"  width="100" height="100" class="d-inline-block align-top" alt="">
+    </td>
+    
+  </tr >
+  <tr style="text-align: center;">
+    <td><b>A website for web technologies course<b></td>
+    
+  </tr>
+  <tr style="text-align: center"> 
+    <td><b>Provides course info, videos and study materials<b></td>
+    
+  </tr>
+  <tr style="text-align: center">
+    <td> <b>contact: webera@gmail.com, 8217049663<b></td>
+
+   
+  </tr>
+
+</table>
+
+
+</body>
+</html>
+{% endblock %}

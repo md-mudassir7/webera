@@ -1,0 +1,83 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+    input {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        text-align: center;
+
+    }
+    body{
+    background-image: url('{% static 'img/loginbg.jpg'%}');
+    background-repeat: no-repeat;
+    background-size: 1800px 900px;
+    background-attachment: fixed;
+
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 0 0;
+}
+
+img.avatar {
+  width: 70px;
+  height: 70px
+  border-radius: 50%;
+}
+
+</style>
+<body>
+
+    <nav class="navbar navbar-light " style="background-color: black;">
+        <a class="navbar-brand" href="#" style="color: azure;">
+             <img src="{% static 'img/w.png'%}" width="100" height="30" class="d-inline-block align-top" alt="" style="padding-left: 20px;">ebera
+            
+        </a>
+    
+        <a class="navbar-brand" href="{%url "aboutus" %}" style="color: azure;">
+          ABOUTUS
+        </a>
+        
+    </nav>
+
+
+{% for message in messages %}
+    <div class="alert alert-secondary">
+        <p style="text-align: center;">{{message}}</p>
+    </div>
+    
+{% endfor %}
+
+
+
+
+
+<div class="container d-flex align-items-center" style="height: 100vh;width: fit-content;">
+    <form class="bg-primary" style="padding: 2vh 2vw;" action="/login/validate/" method="post">
+        {% csrf_token %}
+        <div class="imgcontainer">
+            <img src="{% static 'img/loginicon.png'%}" alt="Avatar" class="avatar" >
+        </div>
+            <h6 style="text-align: center;color:white">LOGIN</h6>
+
+            <input placeholder="enter usn" class="form-control text-center" type="text" name="username" id="" required>
+            <input placeholder="password" class="form-control text-center" type="password" name="password" id="" required>
+            <div class="d-flex justify-content-center">
+                <input type="submit" value="START LEARNING" class="btn btn-light" style="text-align: center; font-size: 14px;"></input>
+
+                
+            </div>
+            <p style="color: white;">Dont have an account ? <span><a style="color:greenyellow;" href="{% url "signuppage" %}">sign up</a></span> here</p>
+            
+
+
+
+    </form>
+</div>
+</body>
+{% endblock %}

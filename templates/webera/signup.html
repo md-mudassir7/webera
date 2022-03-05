@@ -1,0 +1,80 @@
+{% extends "base.html"%}
+{% load static %}
+{% block content %}
+<style>
+    input {
+        margin-top: 3vh;
+        margin-bottom: 3vh;
+        text-align: center;
+
+    }
+    body{
+    background-image: url('{% static 'img/loginbg.jpg'%}');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    background-size: 1800px 900px;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 0px 0;
+}
+
+img.avatar {
+  width: 70px;
+  height: 70px
+  border-radius: 50%;
+}
+
+</style>
+<body>
+
+    <nav class="navbar navbar-light " style="background-color: black;">
+        <a class="navbar-brand" href="#" style="color: azure;">
+             <img src="{% static 'img/w.png'%}" width="100" height="30" class="d-inline-block align-top" alt="" style="padding-left: 20px;">ebera
+        
+        </a>
+        
+      </nav>
+{% for message in messages %}
+    <div class="alert alert-secondary">
+        <p style="text-align: center;">{{message}}</p>
+    </div>
+    
+{% endfor %}
+    
+    <div class="d-flex justify-content-center align-items-center"
+     style="height:100vh;width: 100vw;">
+
+        <div class="d-flex justify-content-center align-items-center bg-primary" style="padding: 4vw;">
+            
+            <div>
+                <form method="post" action="{% url "registeruser" %}">
+                    {% csrf_token %}
+                    <div class="imgcontainer">
+                        <img src="{% static 'img/loginicon.png'%}" alt="Avatar" class="avatar" >
+                    </div>
+                    <h6 style="text-align: center;color:white">SIGN UP</h6>
+
+                    <input placeholder="enter usn" class="form-control" type="text" name="username" id="" required>
+<input placeholder="enter name" class="form-control" type="text" name="name" id="" required>
+<input placeholder="enter email" class="form-control" type="email" name="email" id="" required>
+
+                    <input placeholder="password" class="form-control" type="password" name="password" id="" required>
+                    <input placeholder="re-enter password" class="form-control" type="password" name="repassword" id="" required>
+                    <div class="d-flex justify-content-center">
+                        <input type="submit" value="REGISTER" class="btn btn-light"  style="text-align: center; font-size: 14px;"></input>
+                        
+                       
+                    </div>
+                    <p style="color: white;">Already have an account ?  <span><a style="color: greenyellow;" href="{% url "loginpage" %}">login</a></span> here</p>
+                    
+                
+                
+                </form>
+            </div>
+        </div>
+    </div>
+   </body> 
+{% endblock %}
